@@ -1,0 +1,24 @@
+<h1>商品詳細(admin/items/show)ページ</h1>
+
+<p>
+  <%= @item.name %>
+</p>
+
+
+<h4>
+  商品説明
+</h4>
+<p>
+  <%= @item.introduction %>
+</p>
+
+
+ <h4>
+   税抜き価格
+ </h4>
+ <p>
+    <%= @item.price %> 円
+ </p>
+
+
+<%= link_to "商品編集画面", edit_admin_item_path(@item.id) %>
