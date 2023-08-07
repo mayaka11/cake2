@@ -1,0 +1,27 @@
+<h1>ログインした顧客の情報編集(Public::Customers#edit)ページ</h1>
+
+<%= form_with model: @customer do |f| %>
+
+  <h4>
+    姓
+  </h4>
+    <%= f.text_field :last_name %>
+
+
+  <h4>
+    名
+  </h4>
+    <%= f.text_field :first_name %>
+
+
+  <h4>
+    メールアドレス
+  </h4>
+    <%= f.text_field :email %>
+
+
+
+
+  <%= f.submit '保存' %>
+
+<% end %>

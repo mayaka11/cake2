@@ -16,6 +16,9 @@
         <li>
           <%= link_to "ログアウト(顧客)", destroy_customer_session_path,method: :delete %>
         </li>
+        <li>
+          <%= link_to "マイページ(顧客)", customer_path(current_customer.id) %>
+        </li>
       <% else %>
         <li>
           <%= link_to "新規登録(顧客)", new_customer_registration_path %>

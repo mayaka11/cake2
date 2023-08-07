@@ -1,0 +1,13 @@
+<h1>顧客の情報一覧(Admin::Customers#index)ページ</h1>
+
+<% @customers.each do |customer| %>
+
+
+    <h4>
+      姓  名
+    </h4>
+      <span>
+        <%= link_to customer.last_name, admin_customer_path(customer.id) %><%= customer.first_name %>
+      </span>
+
+<% end %>

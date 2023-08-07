@@ -1,0 +1,27 @@
+<h1>ログインした顧客の情報詳細(Public::Customers#show)ページ</h1>
+
+
+<%= link_to "マイページ編集", edit_customer_path(current_customer.id) %>
+
+  <h2>
+    姓
+  </h2>
+  <p>
+    <%= @customer.last_name %>
+  </p>
+
+
+  <h2>
+    名
+  </h2>
+  <p>
+    <%= @customer.first_name %>
+  </p>
+
+
+  <h2>
+    メールアドレス
+  </h2>
+  <p>
+    <%= @customer.email %>
+  </p>

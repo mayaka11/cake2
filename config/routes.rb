@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       root to: "homes#top"
       get 'about' => 'homes#about'
       resources :items, only: [:index, :show]
+      resources :customers, only: [:show, :edit, :update]
     end
 
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
       post 'items' => 'items#create'
       patch 'items/:id' => 'items#update',as: 'edit_item'
       resources :items, only: [:new, :index, :show, :edit]
+      resources :customers, only: [:index, :show, :edit, :update]
     end
 
 
