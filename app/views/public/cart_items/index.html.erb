@@ -1,0 +1,11 @@
+<h1>カート内商品一覧(Public::CartItems#index)ページ</h1>
+
+<% @cart_items.each do |cart_item| %>
+
+  <p>商品名</p>
+    <span>
+      <%= cart_item.item_id %>
+    </span>
+
+
+<% end %>

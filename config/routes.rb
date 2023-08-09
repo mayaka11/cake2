@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+
 #顧客用
 #URL  /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
       get 'about' => 'homes#about'
       resources :items, only: [:index, :show]
       resources :customers, only: [:show, :edit, :update]
+
+      resources :cart_items, only: [:index, :update, :destroy, :create]
     end
 
 
