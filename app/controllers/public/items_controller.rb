@@ -8,6 +8,7 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])   #1つのデータを取得するので、単数形にする。
+    @cart_item = CartItem
   end
 
 
