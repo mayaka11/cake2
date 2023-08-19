@@ -1,23 +1,35 @@
 <h1>商品詳細(public/items/show)ページ</h1>
 
+<%= form_with model: @item do |f| %>
 
-<p>
-  <%= @item.name %>
-</p>
-
-
-<h4>
-  商品説明
-</h4>
-<p>
-  <%= @item.introduction %>
-</p>
+  <h1>
+    <%= @item.name %>
+  </h1>
 
 
- <h4>
-   税抜き価格
- </h4>
- <p>
+  <h4>
+    商品説明
+  </h4>
+  <p>
+    <%= @item.introduction %>
+  </p>
+
+
+  <h4>
+    税抜き価格
+  </h4>
+  <p>
     <%= @item.price %> 円
- </p>
+  </p>
 
+
+  <h4>
+    個数選択
+  </h4>
+  <p>
+    <%= f.select :amount, *[1..5] %>
+  </p>
+
+  <%= f.submit 'カートに入れる' %>
+
+<% end %>
