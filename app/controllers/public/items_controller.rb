@@ -5,7 +5,7 @@ class Public::ItemsController < ApplicationController
     @items = Item.all   #すべてのデータを表示するため、複数形にする。
   end
 
-
+#商品詳細ページ
   def show
     @item = Item.find(params[:id])   #1つのデータを取得するので、単数形にする。
     @cart_item = CartItem

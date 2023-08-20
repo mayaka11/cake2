@@ -19,11 +19,15 @@
         <td><%= cart_item.item.with_tax_price %></td>  <!--itemモデルにメゾッドを書いているため記載の省略ができる-->
         <td><%= cart_item.item.amount %></td>
         <td><%= cart_item.item.subtotal %></td>  <!--cart_itemモデルにメゾッドを書いているため記載の省略ができる-->
+        <%= link_to "削除する" %>
         <td><% @total += cart_item.item.subtota %></td>  <!--cart_itemモデルにメゾッドを書いているため記載の省略ができる-->
 
       </tr>
 
     <% end %>
+
+
+
   </tbody>
 
 </table>

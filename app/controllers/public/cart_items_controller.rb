@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
 
+before_action :authenticate_customer!
 
   def index
     @cart_items = current_customer.cart_items.includes([:item])
@@ -8,12 +9,22 @@ class Public::CartItemsController < ApplicationController
 
 
   def create
-    # １.&2. データを受け取り新規登録するためのインスタンス作成
+    #データを受け取り新規登録するためのインスタンス作成
     @cart_item = current_customer.cart_items.new(cart_item__params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
-    cart_item.save
-    # 4. カート内商品画面へリダイレクト
-    redirect_to cart_items_path
+    #「もし」元々カート内に同じ商品がある場合、「数量を追加」更新・保存する
+    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
+      #元々カート内にあるもの「item_id」
+      cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+      #cart_item.quantityに今追加したparams[:cart_item][:quantity]を加える
+      #.to_iとして数字として扱う
+      cart_item.amount += params[:cart_item][:amount].to_i
+      #データをデータベースに保存するためのsaveメソッド実行
+      cart_item.save
+    else
+      @cart_item.save!
+    end
+       #カート内商品画面へリダイレクト
+      redirect_to cart_items_path
   end
 
 
